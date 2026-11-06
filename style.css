@@ -1,0 +1,133 @@
+/* ---------- Variáveis (paleta e medidas) ---------- */
+:root {
+  --fundo: #2b1d14;        /* mesa de madeira escura */
+  --papel: #e6d8bd;        /* papel de jornal envelhecido */
+  --papel-claro: #f1e7d0;
+  --tinta: #3b2a1e;        /* tinta marrom quase preta */
+  --marrom: #6b4a2f;
+  --marrom-escuro: #4a3222;
+  --ferrugem: #8c2f1b;     /* vermelho de manchete */
+  --ferrugem-escuro: #5e1f12;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--fundo);
+  font-family: "Old Standard TT", Georgia, serif;
+}
+
+/* ---------- Página do jornal ---------- */
+.calculadora {
+  width: 100%;
+  max-width: 350px;
+  padding: 20px 22px 26px;
+  color: var(--tinta);
+  background:
+    radial-gradient(circle at 20% 15%, rgba(120, 80, 40, 0.12), transparent 55%),
+    radial-gradient(circle at 85% 90%, rgba(90, 55, 25, 0.18), transparent 50%),
+    var(--papel);
+  border: 1px solid var(--tinta);
+  outline: 1px solid var(--tinta);
+  outline-offset: -8px;
+  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.55), 6px 6px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* Cabeçalho tipo título de jornal (feito só com CSS) */
+.calculadora::before {
+  content: "Calculdaora";
+  display: block;
+  margin: 6px 0 16px;
+  padding: 6px 0;
+  text-align: center;
+  font: 900 1.45rem "Playfair Display", Georgia, serif;
+  letter-spacing: 0.02em;
+  border-top: 3px double var(--tinta);
+  border-bottom: 3px double var(--tinta);
+}
+
+/* ---------- Visor ---------- */
+.visor {
+  height: 112px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  background: var(--papel-claro);
+  border: 1.5px solid var(--tinta);
+  box-shadow: inset 0 0 14px rgba(107, 74, 47, 0.35);
+  overflow: hidden;
+}
+
+.expressao {
+  min-height: 18px;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--marrom);
+}
+
+.resultado {
+  font: 700 2.4rem/1 "Playfair Display", Georgia, serif;
+  white-space: nowrap;
+}
+
+/* ---------- Teclas ---------- */
+.teclas {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.tecla {
+  aspect-ratio: 1.1;
+  border: 1.5px solid var(--tinta);
+  border-radius: 2px;
+  background: var(--papel-claro);
+  color: var(--tinta);
+  font: 700 1.3rem "Playfair Display", Georgia, serif;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--tinta);
+  transition: transform 0.06s ease, box-shadow 0.06s ease;
+}
+
+.tecla:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 var(--tinta);
+}
+
+.tecla:focus-visible {
+  outline: 2px dashed var(--ferrugem);
+  outline-offset: 3px;
+}
+
+.tecla.func {
+  background: #cdb994;
+}
+
+.tecla.op {
+  background: var(--marrom-escuro);
+  color: var(--papel-claro);
+}
+
+.tecla.igual {
+  background: var(--ferrugem);
+  color: var(--papel-claro);
+  box-shadow: 3px 3px 0 var(--ferrugem-escuro);
+}
+.tecla.igual:active { box-shadow: 0 0 0 var(--ferrugem-escuro); }
+
+/* Teclas largas (ocupam 2 colunas) */
+.tecla.larga {
+  grid-column: span 2;
+  aspect-ratio: 2.3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tecla { transition: none; }
+}

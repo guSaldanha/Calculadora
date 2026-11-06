@@ -1,0 +1,24 @@
+# Calculadora
+
+Calculadora web feita com HTML, CSS e JavaScript puro, sem bibliotecas. O visual é inspirado em Jornais antigos.
+
+## Funcionalidades
+
+- Soma, subtração, multiplicação e divisão
+- Porcentagem, inverter sinal e apagar último dígito
+- Operações encadeadas (ex.: `2 + 3 × 4`)
+- Formatação em pt-BR (`1.234,5`)
+- Tratamento de divisão por zero e de erros de ponto flutuante (`0,1 + 0,2 = 0,3`)
+- Suporte ao teclado: números, `+ - * /`, `Enter`, `Backspace`, `Esc`
+- Layout responsivo e navegação por teclado acessível
+
+## O que aprendi
+
+- Manipulação do DOM e delegação de eventos
+- Controle de estado com variáveis
+- CSS Grid e variáveis CSS (custom properties)
+- Acessibilidade básica (`aria-label`, `:focus-visible`)
+
+## Autor
+
+Gustavo dos Santos Saldanha
